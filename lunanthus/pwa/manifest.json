@@ -7,14 +7,30 @@
     "theme_color": "#000000",
     "icons": [
         {
-            "src": "/icon-192.png",
-            "sizes": "192x192",
+            "src": "icon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "icon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "lunanthus_install.png",
+            "sizes": "1082x2402",
             "type": "image/png"
         },
         {
-            "src": "/icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
+            "src": "lunanthus_install_wide.png",
+            "sizes": "1169x658",
+            "type": "image/png",
+            "form_factor": "wide"
         }
-    ]
+    ],
+    "description": "Install Lunanthus as a PWA on your device!"
 }
