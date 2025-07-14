@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-trailing-newline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check for missing trailing newline
+        run: |
+          failed=0
+          for file in $(git ls-files '*.js' '*.jsx' '*.ts' '*.tsx' '*.css' '*.scss' '*.html'); do
+            if [ -s "$file" ] && [ "$(tail -c 1 "$file")" != "" ]; then
+              echo "No newline at end of $file"
+              failed=1
+            fi
+          done
+          exit $failed
