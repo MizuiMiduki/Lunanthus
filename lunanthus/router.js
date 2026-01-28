@@ -6,9 +6,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         const path = location.pathname;
         const route = routes.default.find(r => r.path === path);
         if (route) {
-<<<<<<< HEAD
-            const response = await fetch(route.file);
-=======
             const pathName = route.path.slice(1);
 
             const getLastModifiedDate = async (route) => {
@@ -34,7 +31,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const response = await fetch(route.file+`?t=${lastModifiedDate}`);
 
->>>>>>> f963cc1 (router.js styleLink fix)
             const html = await response.text();
             app.innerHTML = html;
 
@@ -48,8 +44,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 script.src = route.script + `?t=${Date.now()}`;
                 script.type = "module";
                 document.body.appendChild(script);
-<<<<<<< HEAD
-=======
             } else {
                 const existingScript = document.querySelector(`script[type="module"]`);
                 if (existingScript) {
@@ -74,7 +68,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (existingStyle) {
                     existingStyle.remove();
                 }
->>>>>>> f963cc1 (router.js styleLink fix)
             }
         } else {
             app.innerHTML = "<h1>404<br>Not Found</h1>";
