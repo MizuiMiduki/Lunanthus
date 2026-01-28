@@ -49,7 +49,9 @@ $(document).ready(async function () {
             // title="Style" で識別
             $("link[rel='stylesheet'][title='Style']").remove();
 
-            if (route.style) {
+            if (route.style === null) {
+                // 明示的にスタイルシートが無い場合は何もしない
+            } else if (route.style) {
                 const $style = $("<link>").attr({
                     rel: "stylesheet",
                     href: `${route.style}?t=${Date.now()}`,
