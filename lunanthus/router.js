@@ -9,7 +9,11 @@ $(async function () {
         if (route) {
             const pathName = route.path.slice(1);
 
-            // Last-Modified を取得する関数
+            /**
+             * Last-Modified を取得する関数
+             *
+             * @param {{ file: string }} route
+             */
             const getLastModifiedDate = async (route) => {
                 try {
                     const response = await fetch(route.file, { method: 'HEAD' });
