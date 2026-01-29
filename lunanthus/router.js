@@ -1,5 +1,5 @@
-$(document).ready(async function () {
-    const routes = await import("/lunanthus/routes.js");
+$(async function () {
+    const routes = await import("./routes.js");
     const $app = $("#app");
 
     const renderPage = async () => {
