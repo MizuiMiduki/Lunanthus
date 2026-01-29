@@ -1,5 +1,5 @@
 $(document).ready(async function () {
-    const routes = await import("./routes.js");
+    const routes = await import("/lunanthus/routes.js");
     const $app = $("#app");
 
     const renderPage = async () => {
@@ -9,11 +9,7 @@ $(document).ready(async function () {
         if (route) {
             const pathName = route.path.slice(1);
 
-            /**
-             * Last-Modified を取得する関数
-             *
-             * @param {{ file: string }} route
-             */
+            // Last-Modified を取得する関数
             const getLastModifiedDate = async (route) => {
                 try {
                     const response = await fetch(route.file, { method: 'HEAD' });
