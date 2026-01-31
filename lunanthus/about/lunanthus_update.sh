@@ -3,7 +3,7 @@
 REPO_URL="https://github.com/MizuiMiduki/Lunanthus.git"
 REMOTE_NAME="lunanthus_origin"
 
-WHITELIST=("lunanthus/spa/" "lunanthus/pwa/sw.js" "lunanthus/router.js")
+WHITELIST=("lunanthus/spa/" "lunanthus/pwa/sw.js" "lunanthus/router.js" "lunanthus/about/lunanthus_about.json")
 
 if ! git remote | grep -q "$REMOTE_NAME"; then
     git remote add $REMOTE_NAME $REPO_URL
