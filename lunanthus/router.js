@@ -3,6 +3,8 @@ $(async function () {
     const $app = $("#app");
 
     const renderPage = async () => {
+        window.scrollTo(0, 0);
+
         const path = location.pathname;
         const route = routes.default.find(r => r.path === path);
 
@@ -13,7 +15,7 @@ $(async function () {
 
             if (manifest_data.name && route.title) {
                 document.title = `${route.title} - ${manifest_data.name}`;
-            }else if (manifest_data.name) {
+            } else if (manifest_data.name) {
                 document.title = manifest_data.name;
             }
 
