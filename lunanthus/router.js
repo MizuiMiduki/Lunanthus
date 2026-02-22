@@ -19,7 +19,7 @@ $(async function () {
                 document.title = manifest_data.name;
             }
 
-            const pathName = route.path.slice(1);
+            history.replaceState(history.state, document.title, location.href);
 
             /**
              * Last-Modified を取得する関数
@@ -98,8 +98,8 @@ $(async function () {
 
             if (routes.default.some(r => r.path === pathname)) {
                 event.preventDefault();
-                renderPage();
                 history.pushState(null, "", pathname);
+                renderPage();
             }
         }
     });
