@@ -8,11 +8,10 @@ $(async function () {
         const path = location.pathname;
         const route = routes.default.find(r => r.path === path);
 
+        const manifest = await fetch('/lunanthus/pwa/manifest.json');
+        const manifest_data = await manifest.json();
+
         if (route) {
-
-            const manifest = await fetch('/lunanthus/pwa/manifest.json');
-            const manifest_data = await manifest.json();
-
             if (manifest_data.name && route.title) {
                 document.title = `${route.title} - ${manifest_data.name}`;
             } else if (manifest_data.name) {
@@ -81,6 +80,8 @@ $(async function () {
             }
 
         } else {
+            document.title = `404 Not Found - ${manifest_data.name}`;
+            history.replaceState(history.state, document.title, location.href);
             $app.html("<h1>404<br>Not Found</h1>");
         }
     };
